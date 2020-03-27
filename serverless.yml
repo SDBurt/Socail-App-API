@@ -41,7 +41,7 @@ functions:
     handler: create_post.main
     events:
       - http:
-          path: /{userHandle}/post
+          path: compose
           method: post
           cors: true
           authorizer: aws_iam

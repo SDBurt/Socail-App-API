@@ -15,8 +15,8 @@ export async function main(event, context) {
       userHandle: data.userHandle,
       userImage: data.userImage,
       content: data.content,
-      likeCount: data.likeCount,
-      commentCount: data.commentCount,
+      likeCount: 0,
+      commentCount: 0,
       createdAt: Date.now()
     }
   };
