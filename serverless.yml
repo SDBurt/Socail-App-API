@@ -37,77 +37,78 @@ provider:
       Resource: "arn:aws:dynamodb:us-west-2:*:*"
 
 functions:
-  create_post:
-    handler: create_post.main
+
+  get_users:
+    handler: get_users.main
     events:
       - http:
-          path: compose
+          path: users
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  create_user:
+    handler: create_user.main
+    events:
+      - http:
+          path: user/
           method: post
           cors: true
           authorizer: aws_iam
-
-  get_post:
-    handler: get_post.main
-    events:
-      - http:
-          path: /{userHandle}/post/{postId}/
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  like_post:
-    handler: like_post.main
-    events:
-      - http:
-          path: /{userHandle}/post/{postId}/like
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  unlike_post:
-    handler: unlike_post.main
-    events:
-      - http:
-          path: /{userHandle}/post/{postId}/unlike
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  get_posts:
-    handler: get_posts.main
-    events:
-      - http:
-          path: /{userHandle}/posts
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  signup:
-    handler: signup.main
-    events:
-      - http:
-          path: signup
-          method: post
-          cors: true
-          authorizer: aws_iam
-
-  # login:
-  #   handler: login.main
-  #   events:
-  #     - http:
-  #         path: login
-  #         method: get
-  #         cors: true
-  #         authorizer: aws_iam
 
   get_user:
     handler: get_user.main
     events:
       - http:
-          path: /{userHandle}
+          path: user/{handle}
           method: get
           cors: true
           authorizer: aws_iam
+
+  # create_post:
+  #   handler: create_post.main
+  #   events:
+  #     - http:
+  #         path: post
+  #         method: post
+  #         cors: true
+  #         authorizer: aws_iam
+
+  # get_post:
+  #   handler: get_post.main
+  #   events:
+  #     - http:
+  #         path: /{userHandle}/post/{postId}/
+  #         method: get
+  #         cors: true
+  #         authorizer: aws_iam
+
+  # like_post:
+  #   handler: like_post.main
+  #   events:
+  #     - http:
+  #         path: /{userHandle}/post/{postId}/like
+  #         method: get
+  #         cors: true
+  #         authorizer: aws_iam
+
+  # unlike_post:
+  #   handler: unlike_post.main
+  #   events:
+  #     - http:
+  #         path: /{userHandle}/post/{postId}/unlike
+  #         method: get
+  #         cors: true
+  #         authorizer: aws_iam
+
+  # get_posts:
+  #   handler: get_posts.main
+  #   events:
+  #     - http:
+  #         path: /{userHandle}/posts
+  #         method: get
+  #         cors: true
+  #         authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
 resources:

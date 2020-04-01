@@ -8,7 +8,7 @@ export async function main(event, context) {
     const params = {
         TableName: process.env.user_table,
         Key: {
-            handle: event.pathParameters.handle,
+            handle: event.pathParameters.handle
         }
     };
 
