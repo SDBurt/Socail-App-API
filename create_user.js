@@ -10,8 +10,8 @@ export async function main(event, context) {
     const params = {
         TableName: process.env.user_table,
         Item: {
-            userId: uuid.v1(),
             handle: data.handle,
+            userId: uuid.v1(),
             email: data.email,
             createdAt: Date.now()
         }

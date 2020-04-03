@@ -18,7 +18,9 @@ export async function main(event, context) {
             console.log(result.Item);
 
             return success({
-                handle: result.Item.handle
+                handle: result.Item.handle,
+                email: result.Item.email,
+                userId: result.Item.userId
             });
         } else {
             return failure({
