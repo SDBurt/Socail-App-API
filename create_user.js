@@ -13,7 +13,7 @@ export async function main(event, context) {
             handle: data.handle,
             userId: uuid.v1(),
             email: data.email,
-            createdAt: Date.now()
+            createdAt: (new Date()).toISOString()
         }
     };
     try {

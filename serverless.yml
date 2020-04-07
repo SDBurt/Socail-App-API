@@ -65,14 +65,23 @@ functions:
           cors: true
           #authorizer: aws_iam
 
-  # create_post:
-  #   handler: create_post.main
-  #   events:
-  #     - http:
-  #         path: post
-  #         method: post
-  #         cors: true
-  #         authorizer: aws_iam
+  create_post:
+    handler: create_post.main
+    events:
+      - http:
+          path: post
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  get_auth_user:
+    handler: get_auth_user.main
+    events:
+      - http:
+          path: auth/{handle}
+          method: get
+          cors: true
+          authorizer: aws_iam
 
   # get_post:
   #   handler: get_post.main

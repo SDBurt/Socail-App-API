@@ -15,7 +15,7 @@ export async function main(event, context) {
 
     const params = {
         TableName: process.env.posts_table,
-        ProjectionExpression: 'postId, userHandle, content, createdAd, userId, commentCount, likeCount'
+        ProjectionExpression: 'postId, userHandle, content, createdAt, userId, commentCount, likeCount'
     };
     try {
         const result = await dynamoDbLib.call('scan', params);

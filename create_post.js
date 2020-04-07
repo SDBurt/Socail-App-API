@@ -17,7 +17,7 @@ export async function main(event, context) {
       content: data.content,
       likeCount: 0,
       commentCount: 0,
-      createdAt: Date.now()
+      createdAt: (new Date()).toISOString()
     }
   };
 
